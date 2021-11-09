@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
@@ -7,8 +9,7 @@ class ArticlesController < ApplicationController
     @article = Article.find params[:id]
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @article = Article.new article_params
@@ -20,7 +21,8 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def article_params
-      params.require(:article).permit :title, :text
-    end
+
+  def article_params
+    params.require(:article).permit :title, :text
+  end
 end

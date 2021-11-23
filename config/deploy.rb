@@ -1,20 +1,15 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "app"
+set :application, "myapp"
 set :repo_url, "git@github.com:banguyenht/rails_app.git"
+
 set :deploy_to, "/home/deploy/#{fetch :application}"
+
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
-  
-# set :pty, true
-# set :ssh_options, {
-#   forward_agent: true,
-#   auth_methods: %w[publickey],
-#   keys: ['/home/ba/Downloads/ec2-docker.pem']
-# }
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

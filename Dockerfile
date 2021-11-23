@@ -9,6 +9,8 @@ RUN mkdir /app
 WORKDIR /app
 ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
+RUN gem install capistrano-passenger
+RUN gem install capistrano-rbenv
 RUN bundle install
 RUN bundle exec rails webpacker:install
 ADD . /app
